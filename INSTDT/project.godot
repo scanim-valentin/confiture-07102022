@@ -11,11 +11,33 @@ config_version=4
 [application]
 
 config/name="INSTDT"
+run/main_scene="res://Terrain.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[global]
+
+filter=false
 
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
+
+[importer_defaults]
+
+texture={
+"flags/filter": false
+}
+texture_array={
+"flags/filter": false
+}
+texture_3d={
+"flags/filter": false
+}
 
 [physics]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://CharacterSheet.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://BodyCollider.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://TerrainBlocs/Tree.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/Terrain.gd" type="Script" id=7]
 [ext_resource path="res://TerrainBlocs/Wall.tscn" type="PackedScene" id=8]
+[ext_resource path="res://TerrainBlocs/Goal.tscn" type="PackedScene" id=9]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 22.441
@@ -30,6 +31,7 @@ animation = "Idle_Down"
 
 [node name="Node2D" type="Node2D" parent="."]
 script = ExtResource( 7 )
+goal = ExtResource( 9 )
 wall = ExtResource( 8 )
 breakable_wall = ExtResource( 4 )
 flower = ExtResource( 5 )

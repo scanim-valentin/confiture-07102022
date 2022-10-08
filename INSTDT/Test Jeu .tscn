@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://CharacterSheet.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://BodyCollider.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Scripts/Terrain.gd" type="Script" id=7]
 [ext_resource path="res://TerrainBlocs/Wall.tscn" type="PackedScene" id=8]
 [ext_resource path="res://TerrainBlocs/Goal.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Map.tscn" type="PackedScene" id=10]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 22.441
@@ -36,3 +37,5 @@ breakable_wall = ExtResource( 4 )
 flower = ExtResource( 5 )
 tree = ExtResource( 6 )
 dust = ExtResource( 3 )
+
+[node name="Map" parent="." instance=ExtResource( 10 )]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Button_Next.png-6e8c62aa39336ec53c6008b1e230aa7d.stex"
+path="res://.import/Axo-Sheet_Death.png-f533350947635d01d1f16eec9a19b1d5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Button_Next.png"
-dest_files=[ "res://.import/Button_Next.png-6e8c62aa39336ec53c6008b1e230aa7d.stex" ]
+source_file="res://Sprites/Axo-Sheet_Death.png"
+dest_files=[ "res://.import/Axo-Sheet_Death.png-f533350947635d01d1f16eec9a19b1d5.stex" ]
 
 [params]
 

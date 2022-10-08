@@ -2,47 +2,30 @@ extends Node2D
 
 # Terrain description using characters.
 var terrainArray = [
-"  #####################",
-"      t   *           #",
-"# # # ##o ~## #o# #t# #",
-"# t   #   * # #     # #",
-"# #o# # ### ##t *## #~#",
-"#   #   *   #   #     #",
-"# ##o## #~# # # ##t ###",
-"#           # #   #   #",
-"### # o##~## # ### #~# #",
-"#   #     * #   # #   #",
-"# # # o####t# # # ##*##",
-"# # #   # # o # # #   #",
-"# t###*## # # #o# # ###",
-"#       # #   #   #   #",
-"# #*# # ~ # ###*# ### #",
-"#   # # #   #     #   #",
-"#~# # ##*##t#*### ### #",
-"#   # # # #     #     #",
-"# ###o# # # #*###*# # #",
-"# #         #     # # #",
-"# # # ##*## ### #t### #",
-"#   #   *              ",
-"####o########t#######  " ]
+"  ###########",
+"      t   *  ",
+"# # # ##o ~##",
+"# t   #   * #",
+"# #o# # ### #",
+"#   #   *   #",
+"# ##o## #~# #",
+"#           #",
+"### # o##~## ",
+"#   #     * #",
+"# # # G####t#" ]
 
+export(PackedScene) var start
+export(PackedScene) var goal
 export(PackedScene) var wall
 export(PackedScene) var breakable_wall
 export(PackedScene) var flower
 export(PackedScene) var tree
 export(PackedScene) var dust
 
-#Useless for now
-class Bloc :
-	var Element 
-	var Damage: int
-	var ExplosionRange: int
-
 var spriteSize = 48 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-	var generationDict = {"#": wall, "*":flower, "o":dust, "t":tree, "~": breakable_wall}
 	var effectArray = [
 		{
 	"damage" : 1,
@@ -65,7 +48,9 @@ func _ready():
 	"destruction": true 
 	}]
 	effectArray.shuffle()
-	var generationDict = {"#": {"bloc": wall,           "effect": {"damage": 0, 
+	var generationDict = {"S": {"bloc": start           },  
+						  "G": {"bloc": goal           },
+						  "#": {"bloc": wall,           "effect": {"damage": 0, 
 																   "explosionRange": 0, 
 																   "destruction": false}},
 						  "*": {"bloc": flower,         "effect":effectArray[0]}, 
@@ -79,7 +64,8 @@ func _ready():
 			if(terrainArray[i][j] != " ") :
 #				print(generationDict[ terrainArray[i][j] ]["bloc"]) 
 				var newwall = generationDict[ terrainArray[i][j] ]["bloc"].instance()
-				newwall.effect = generationDict[ terrainArray[i][j] ]["effect"]
+				if(terrainArray[i][j] != "S" && terrainArray[i][j] != "G") : 
+					newwall.effect = generationDict[ terrainArray[i][j] ]["effect"]
 				newwall.position = Vector2(j*spriteSize,i*spriteSize)
 				add_child(newwall)
 					

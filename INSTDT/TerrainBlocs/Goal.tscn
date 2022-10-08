@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="OpenSimplexNoise" id=1]
+
+[sub_resource type="NoiseTexture" id=2]
+width = 48
+height = 48
+noise = SubResource( 1 )
+
+[node name="Node2D2" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = SubResource( 2 )
+__meta__ = {
+"_editor_description_": ""
+}

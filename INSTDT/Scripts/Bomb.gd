@@ -51,5 +51,5 @@ func explode():
 	bombAnim.animation = "Explode"
 	bombAnim.play()
 	_check_Explosion()		
-		bombAnim.connect("animation_finished",self,"queue_free")
+	bombAnim.connect("animation_finished",self,"queue_free")
 	

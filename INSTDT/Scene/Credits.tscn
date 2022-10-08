@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/Changer_Scene.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Background/Credits.png" type="Texture" id=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Sprite
+
+func _ready():
+	pass
+	
+"
+
+[node name="Crédits" type="Node2D"]
+
+[node name="Crédits" type="Sprite" parent="."]
+position = Vector2( 510.875, 301 )
+scale = Vector2( 0.72012, 0.434366 )
+texture = ExtResource( 2 )
+script = SubResource( 1 )
+
+[node name="Sortie" type="Button" parent="."]
+margin_left = 382.0
+margin_top = 255.0
+margin_right = 652.0
+margin_bottom = 357.0
+text = "Sortie"
+script = ExtResource( 1 )
+Scene_Cible = "res://Scene/Control_Menu.tscn"

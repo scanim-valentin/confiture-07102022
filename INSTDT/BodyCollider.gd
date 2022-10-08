@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 export var speed= 100.0;
 export var bombDist = 40;
+
 var hp : int
 export var maxHP = 10;
 var anim: AnimatedSprite; 

@@ -14,9 +14,7 @@ radius = 22.441
 
 [node name="Test Jeu " type="Node2D"]
 
-[node name="PlayerBody" type="KinematicBody2D" parent="." groups=[
-"player",
-]]
+[node name="PlayerBody" type="KinematicBody2D" parent="." groups=["player"]]
 position = Vector2( 0, 1 )
 script = ExtResource( 2 )
 

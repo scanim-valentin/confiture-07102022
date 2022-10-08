@@ -14,11 +14,12 @@ func _ready():
 
 	
 func explode():
-	print("explode? ")
+	print("EXPLOSION!")
 	#Destruction upon explosion
 	if(effect["destruction"]):
 		hide()
 		queue_free()
+		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

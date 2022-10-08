@@ -12,6 +12,7 @@ var isDead : bool = false
 var life
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	life = get_node("life")
 	anim = get_node("AnimatedSprite")
 	direction = Vector2(1,0)
 	screen_size = get_viewport_rect().size
@@ -20,6 +21,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	print(hp)
 	if not isDead:
 		_move(delta);
 		if not anim.is_playing():
@@ -66,13 +68,15 @@ func _put_Bomb():
 	bomb.position = position + Vector2(direction.x*bombDist,direction.y*bombDist) 
 
 func kill():
-	print("I'm dying")
-	anim.animation = "ded"
-	isDead= true	
+	if hp <= 0:
+		print("I'm dying")
+		anim.animation = "ded"
+		isDead= true	
 func _bomb_detect():
 	print("Bomb ?")
 	
-func take_damage():
+func take_damage(value):
+	hp -= value
 	kill()
 func set_maxHP ():
 	hp = maxHP;

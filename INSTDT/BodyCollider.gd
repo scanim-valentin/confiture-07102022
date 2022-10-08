@@ -9,6 +9,7 @@ var anim: AnimatedSprite;
 var screen_size;
 var  direction; 
 var isDead : bool = false
+var life
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	anim = get_node("AnimatedSprite")
@@ -71,8 +72,6 @@ func kill():
 func _bomb_detect():
 	print("Bomb ?")
 	
-func take_damage(value):
-	hp -= value;
 
 func set_maxHP ():
 	hp = maxHP;

@@ -17,8 +17,10 @@ radius = 22.441
 [node name="Node2D" type="Node2D"]
 position = Vector2( 0, 1 )
 
-[node name="PlayerBody" type="KinematicBody2D" parent="." groups=["player"]]
-position = Vector2( 0, 1 )
+[node name="PlayerBody" type="KinematicBody2D" parent="." groups=[
+"player",
+]]
+position = Vector2( 24, 24 )
 script = ExtResource( 2 )
 
 [node name="BodyCollider" type="CollisionShape2D" parent="PlayerBody"]
@@ -30,6 +32,7 @@ frames = ExtResource( 1 )
 animation = "Idle_Down"
 
 [node name="Node2D" type="Node2D" parent="."]
+position = Vector2( 24, 24 )
 script = ExtResource( 7 )
 goal = ExtResource( 9 )
 wall = ExtResource( 8 )

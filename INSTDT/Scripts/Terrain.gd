@@ -3,15 +3,15 @@ extends Node2D
 # Terrain description using characters.
 var terrainArray = [
 "  ###########",
-"      t   *  ",
-"# # # ##o ~##",
-"# t   #   * #",
-"# #o# # ### #",
-"#   #   *   #",
+"  tot t   *  ",
+"# #~# ##o*~##",
+"#*tot # ~ * #",
+"#~#o# # ### #",
+"# ~t#   * * #",
 "# ##o## #~# #",
-"#           #",
+"#  ~~~~~~~  #",
 "### # o##~## ",
-"#   #     * #",
+"#   #  **** #",
 "# # # G####t#" ]
 
 export(PackedScene) var start

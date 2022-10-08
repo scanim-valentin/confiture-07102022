@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/Bomb.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Bomb.png" type="Texture" id=2]
@@ -7,8 +7,6 @@
 [sub_resource type="PhysicsMaterial" id=12]
 rough = true
 bounce = 1.0
-
-[sub_resource type="CircleShape2D" id=1]
 
 [sub_resource type="AtlasTexture" id=2]
 flags = 4
@@ -62,11 +60,25 @@ animations = [ {
 "name": "Idle",
 "speed": 5.0
 }, {
+"frames": [  ],
+"loop": true,
+"name": "ded",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
 "loop": true,
 "name": "Explode",
 "speed": 5.0
 } ]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 10.1438
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 70.6496, 10 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 10.8641, 66.285 )
 
 [node name="Bomb" type="RigidBody2D"]
 mode = 1
@@ -76,9 +88,23 @@ continuous_cd = 2
 contact_monitor = true
 script = ExtResource( 1 )
 
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 11 )
+animation = "ded"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 11 )
-animation = "Idle"
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Exp1" type="CollisionShape2D" parent="Area2D" groups=[
+"bomb",
+]]
+shape = SubResource( 14 )
+disabled = true
+
+[node name="Exp2" type="CollisionShape2D" parent="Area2D" groups=[
+"bomb",
+]]
+shape = SubResource( 13 )
+disabled = true

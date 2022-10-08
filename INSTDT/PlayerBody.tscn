@@ -6,8 +6,10 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 22.441
 
-[node name="PlayerBody" type="KinematicBody2D"]
-motion/sync_to_physics = true
+[node name="PlayerBody" type="KinematicBody2D" groups=[
+"player",
+]]
+position = Vector2( 0, 1 )
 script = ExtResource( 2 )
 
 [node name="BodyCollider" type="CollisionShape2D" parent="."]

@@ -1,0 +1,37 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://CharacterSheet.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://BodyCollider.gd" type="Script" id=2]
+[ext_resource path="res://TerrainBlocs/Dust.tscn" type="PackedScene" id=3]
+[ext_resource path="res://TerrainBlocs/BreakableWall.tscn" type="PackedScene" id=4]
+[ext_resource path="res://TerrainBlocs/Flower.tscn" type="PackedScene" id=5]
+[ext_resource path="res://TerrainBlocs/Tree.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scripts/Terrain.gd" type="Script" id=7]
+[ext_resource path="res://TerrainBlocs/Wall.tscn" type="PackedScene" id=8]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 22.441
+
+[node name="Test Jeu " type="Node2D"]
+
+[node name="PlayerBody" type="KinematicBody2D" parent="." groups=[
+"player",
+]]
+position = Vector2( 0, 1 )
+script = ExtResource( 2 )
+
+[node name="BodyCollider" type="CollisionShape2D" parent="PlayerBody"]
+position = Vector2( 0, 1 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="PlayerBody"]
+frames = ExtResource( 1 )
+animation = "Idle_Down"
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource( 7 )
+wall = ExtResource( 8 )
+breakable_wall = ExtResource( 4 )
+flower = ExtResource( 5 )
+tree = ExtResource( 6 )
+dust = ExtResource( 3 )

@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Area2D
 
 export var speed= 100.0;
 export var bombDist = 2;
@@ -6,26 +6,21 @@ export var bombDist = 2;
 var anim: AnimatedSprite; 
 var screen_size;
 var  direction;
-var isDead : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	anim = get_node("AnimatedSprite")
 	direction = Vector2(1,0)
 	screen_size = get_viewport_rect().size
+	connect("body_entered",self,"_bomb_detect")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if not isDead:
-		_move(delta);
-		if not anim.is_playing():
-			anim.play()
-		if Input.is_action_just_pressed("Put_Bomb"):
-			_put_Bomb()
-		if get_slide_count() > 0:
-			for index in self.get_slide_count():
-				var collision = get_slide_collision(index)
-				if collision.collider.is_in_group("bomb"):
-					print("Bombed")
+	_move(delta);
+	if not anim.is_playing():
+		anim.play()
+	if Input.is_action_just_pressed("Put_Bomb"):
+		_put_Bomb()
+
 
 
 	
@@ -34,19 +29,19 @@ func _move(delta):
 	if(Input.is_action_pressed("move_up")):
 		direction =	Vector2(0,-1)
 		anim.animation = "Walk_Up"
-		move_and_slide(Vector2(0,-100),Vector2(0,0),false,4,0.78,false)
+		velocity.y -= speed
 	elif(Input.is_action_pressed("move_down")):
 		direction =	Vector2(0,1)
 		anim.animation = "Walk_Down"
-		move_and_slide(Vector2(0,100),Vector2(0,0),false,4,0.78,false)
+		velocity.y += speed
 	elif(Input.is_action_pressed("move_left")):
 		direction =	Vector2(-1,0)
 		anim.animation = "Walk_Left"
-		move_and_slide(Vector2(-100,0),Vector2(0,0),false,4,0.78,false)
+		velocity.x -= speed
 	elif(Input.is_action_pressed("move_right")):
 		direction =	Vector2(1,0)
 		anim.animation = "Walk_Right"
-		move_and_slide(Vector2(100,0),Vector2(0,0),false,4,0.78,false)
+		velocity.x += speed
 	else:
 		if direction.x == -1: 
 			anim.animation = "Idle_Left"
@@ -65,9 +60,7 @@ func _put_Bomb():
 		var bomb = load("res://Bomb.tscn").instance()
 		get_tree().get_root().add_child(bomb)
 		bomb.position = position + bombDist * direction
-
-func kill():
-	print("I'm dying")
-	isDead= true	
+		
+	
 func _bomb_detect():
 	print("Bomb ?")

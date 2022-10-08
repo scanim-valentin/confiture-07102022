@@ -33,7 +33,8 @@ export(PackedScene) var tree
 export(PackedScene) var dust
 
 #Useless for now
-class BlocEffects :
+class Bloc :
+	var Element 
 	var Damage: int
 	var ExplosionRange: int
 
@@ -41,7 +42,7 @@ var spriteSize = 48
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-	var generationDict = {"#": wall, "*":flower, "o":dust, "t":tree, "~": breakable_wall} 
+	var generationDict = {"#": wall, "*":flower, "o":dust, "t":tree, "~": breakable_wall}
 	#Generating terrain	
 	for i in range(terrainArray.size()) :
 		for j in terrainArray[i].length() :

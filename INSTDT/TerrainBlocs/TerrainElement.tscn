@@ -1,13 +1,7 @@
-[gd_scene load_steps=4 format=2]
-
-[sub_resource type="StreamTexture" id=3]
-flags = 4
-load_path = "res://.import/Objects.png-e34fe0ab8c01239b4820179e444428da.stex"
+[gd_scene load_steps=3 format=2]
 
 [sub_resource type="AtlasTexture" id=1]
-flags = 4
-atlas = SubResource( 3 )
-region = Rect2( 0, 0, 48, 48 )
+region = Rect2( 192, 0, 48, 48 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 24, 24 )

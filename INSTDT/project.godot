@@ -18,6 +18,11 @@ config/name="INSTDT"
 run/main_scene="res://Player.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=600
+window/size/resizable=false
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true

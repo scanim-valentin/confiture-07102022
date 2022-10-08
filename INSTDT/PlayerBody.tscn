@@ -9,8 +9,10 @@ radius = 22.441
 [node name="PlayerBody" type="KinematicBody2D" groups=[
 "player",
 ]]
-position = Vector2( 0, 1 )
+position = Vector2( 0, 4 )
 script = ExtResource( 2 )
+bombDist = 10
+maxHP = 20
 
 [node name="BodyCollider" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 1 )
@@ -18,4 +20,4 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
-animation = "Idle_Down"
+animation = "ded"

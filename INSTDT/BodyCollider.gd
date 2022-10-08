@@ -1,17 +1,20 @@
 extends KinematicBody2D
 
 export var speed= 100.0;
-export var bombDist = 2;
-
+export var bombDist = 40;
+var hp : int
+export var maxHP = 10;
 var anim: AnimatedSprite; 
 var screen_size;
-var  direction;
+var  direction; 
 var isDead : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	anim = get_node("AnimatedSprite")
 	direction = Vector2(1,0)
 	screen_size = get_viewport_rect().size
+	set_maxHP()
+	print(hp)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -21,13 +24,6 @@ func _process(delta):
 			anim.play()
 		if Input.is_action_just_pressed("Put_Bomb"):
 			_put_Bomb()
-		if get_slide_count() > 0:
-			for index in self.get_slide_count():
-				var collision = get_slide_collision(index)
-				if collision.collider.is_in_group("bomb"):
-					print("Bombed")
-
-
 	
 func _move(delta):
 	var velocity = Vector2.ZERO
@@ -60,14 +56,23 @@ func _move(delta):
 	position += velocity*delta
 	position.x = clamp(position.x, 0, screen_size.x)
 	position.y = clamp(position.y, 0, screen_size.y)
-	
+	 
 func _put_Bomb():
-		var bomb = load("res://Bomb.tscn").instance()
-		get_tree().get_root().add_child(bomb)
-		bomb.position = position + bombDist * direction
+	print(bombDist)	
+	var bomb = load("res://Bomb.tscn").instance()
+	get_tree().get_root().add_child(bomb)
+	bomb.position = position + Vector2(direction.x*bombDist,direction.y*bombDist) 
 
 func kill():
 	print("I'm dying")
+	anim.animation = "ded"
 	isDead= true	
 func _bomb_detect():
 	print("Bomb ?")
+	
+func take_damage(value):
+	hp -= value;
+
+func set_maxHP ():
+	hp = maxHP;
+	

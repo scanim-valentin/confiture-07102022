@@ -12,11 +12,9 @@ func _ready():
 	add_to_group("terrain")
 	pass # Replace with function body.
 
+	
 func explode():
-	print("EXPLOSION!")
-	
-func _onExplosion():
-	
+	print("explode? ")
 	#Destruction upon explosion
 	if(effect["destruction"]):
 		hide()

@@ -42,7 +42,6 @@ var spriteSize = 48
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-	var generationDict = {"#": wall, "*":flower, "o":dust, "t":tree, "~": breakable_wall}
 	var effectArray = [
 		{
 	"damage" : 1,

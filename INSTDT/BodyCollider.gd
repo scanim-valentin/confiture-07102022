@@ -72,7 +72,8 @@ func kill():
 func _bomb_detect():
 	print("Bomb ?")
 	
-
+func take_damage():
+	kill()
 func set_maxHP ():
 	hp = maxHP;
 	

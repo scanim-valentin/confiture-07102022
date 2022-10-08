@@ -4,7 +4,7 @@
 [ext_resource path="res://Sprites/LAFIN-Sheet.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 9.693, 4.397 )
+extents = Vector2( 5.179, 4.397 )
 
 [sub_resource type="AtlasTexture" id=2]
 flags = 4

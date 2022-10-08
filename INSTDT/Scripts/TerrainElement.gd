@@ -17,8 +17,8 @@ func explode():
 	print("EXPLOSION!")
 	#Destruction upon explosion
 	if(effect["destruction"]):
-		
-		player.take_damage(effect["damage"])
+		if (effect["damage"]>0):
+			player.take_damage()
 		hide()
 		queue_free()
 		

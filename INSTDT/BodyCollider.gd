@@ -1,4 +1,4 @@
-extends Area2D
+extends KinematicBody2D
 
 export var speed= 100.0;
 export var bombDist = 2;
@@ -11,7 +11,6 @@ func _ready():
 	anim = get_node("AnimatedSprite")
 	direction = Vector2(1,0)
 	screen_size = get_viewport_rect().size
-	connect("body_entered",self,"_bomb_detect")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

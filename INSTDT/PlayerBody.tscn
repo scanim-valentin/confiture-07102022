@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://CharacterSheet.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://BodyCollider.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 22.441
+
+[node name="PlayerBody" type="KinematicBody2D"]
+motion/sync_to_physics = true
+script = ExtResource( 2 )
+
+[node name="BodyCollider" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 1 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = ExtResource( 1 )
+animation = "Idle_Down"

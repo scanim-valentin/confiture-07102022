@@ -59,10 +59,11 @@ func _ready():
 						  "~": {"bloc": breakable_wall, "effect":effectArray[3]}} 
 	
 	#Generating terrain	
+#	print(goal)
 	for i in range(terrainArray.size()) :
 		for j in terrainArray[i].length() :
 			if(terrainArray[i][j] != " ") :
-#				print(generationDict[ terrainArray[i][j] ]["bloc"]) 
+#				print(terrainArray[i][j]," ",generationDict[ terrainArray[i][j] ]["bloc"]) 
 				var newwall = generationDict[ terrainArray[i][j] ]["bloc"].instance()
 				if(terrainArray[i][j] != "S" && terrainArray[i][j] != "G") : 
 					newwall.effect = generationDict[ terrainArray[i][j] ]["effect"]

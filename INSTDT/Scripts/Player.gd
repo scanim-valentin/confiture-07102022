@@ -63,3 +63,6 @@ func _put_Bomb():
 	
 func _bomb_detect():
 	print("Bomb ?")
+	
+func _on_Goal():
+	print("GOAL")

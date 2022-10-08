@@ -10,6 +10,7 @@
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
+start = ExtResource( 7 )
 goal = ExtResource( 7 )
 wall = ExtResource( 2 )
 breakable_wall = ExtResource( 6 )

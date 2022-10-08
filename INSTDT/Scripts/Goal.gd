@@ -18,4 +18,6 @@ func _ready():
 
 func _onGoal(body):
 	if(body.is_in_group("player")) : 
-		print("GOAL")
+		get_node("AnimatedSprite").play()
+		body.kill()
+		

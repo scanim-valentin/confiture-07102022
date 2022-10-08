@@ -1,11 +1,50 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://CharacterSheet.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://Sprites/Life-Sheet.png" type="Texture" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 7.92338
 height = 0.0
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 48, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 96, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 144, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 192, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 240, 0, 48, 48 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+} ]
 
 [node name="Player" type="Area2D"]
 position = Vector2( 487.575, 292.545 )
@@ -20,3 +59,23 @@ position = Vector2( 0, 2 )
 z_index = 3
 frames = ExtResource( 2 )
 animation = "Idle_Down"
+
+[node name="LifeHolder" type="Node2D" parent="."]
+
+[node name="Life1" type="AnimatedSprite" parent="LifeHolder"]
+position = Vector2( -7.41614, 31.519 )
+scale = Vector2( 0.38198, 0.348872 )
+frames = SubResource( 8 )
+animation = "idle"
+
+[node name="LIfe2" type="AnimatedSprite" parent="LifeHolder"]
+position = Vector2( 2.64868, 32.0487 )
+scale = Vector2( 0.38198, 0.348872 )
+frames = SubResource( 8 )
+animation = "idle"
+
+[node name="Life3" type="AnimatedSprite" parent="LifeHolder"]
+position = Vector2( 12.7136, 32.0487 )
+scale = Vector2( 0.38198, 0.348872 )
+frames = SubResource( 8 )
+animation = "idle"

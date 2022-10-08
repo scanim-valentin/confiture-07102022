@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Sprites/Button_Restart.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Changer_Scene.gd" type="Script" id=2]
+[ext_resource path="res://Alkalami-Regular.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 3 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.354554
+anchor_top = 0.685941
+anchor_right = 0.652406
+anchor_bottom = 0.842608
+text = "Restart"
+icon = ExtResource( 1 )
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+Scene_Cible = "res://Test Jeu .tscn"
+
+[node name="Msg" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -142.5
+margin_right = 142.5
+margin_bottom = 111.0
+custom_fonts/font = SubResource( 1 )
+text = "You Died GG ! "
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DieCount" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -58.0
+margin_top = -65.5
+margin_right = 58.0
+margin_bottom = 65.5
+custom_fonts/font = SubResource( 2 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -17,4 +17,5 @@ func _ready():
 
 
 func _onGoal(body):
-	print("GOAL")
+	if(body.is_in_group("player")) : 
+		print("GOAL")

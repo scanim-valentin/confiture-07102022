@@ -6,9 +6,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 22.441
 
-[node name="PlayerBody" type="KinematicBody2D" groups=[
-"player",
-]]
+[node name="PlayerBody" type="KinematicBody2D" groups=["player"]]
 position = Vector2( 0, 4 )
 script = ExtResource( 2 )
 bombDist = 10
@@ -20,4 +18,3 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
-animation = "ded2"

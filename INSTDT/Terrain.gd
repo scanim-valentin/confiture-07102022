@@ -36,7 +36,7 @@ func _ready():
 				'#':
 					var newwall = wall.instance()
 					newwall.position = Vector2(j*spriteSize,i*spriteSize)
-
+					add_child(newwall)
 					
 
 

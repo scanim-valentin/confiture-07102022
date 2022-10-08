@@ -5,14 +5,18 @@ extends Node2D
 # var a = 2
 # var b = "text"
 
-export(int) var damage
-export(int) var perk
-export(int) var explosion_area
+export(Dictionary) var effect
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
+func _onExplosion():
+	
+	#Destruction upon explosion
+	if(effect["destruction"]):
+		hide()
+		queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
